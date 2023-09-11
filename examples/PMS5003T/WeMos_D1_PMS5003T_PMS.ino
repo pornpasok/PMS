@@ -7,7 +7,7 @@ PMS pms(serialDust);
 PMS::DATA data;
 
 float temperature = 0;
-unsigned int humandity = 0;
+float humandity = 0;
 
 float set_temp_offset = 4.8;; 
 float set_rhum_offset = 7.0;
@@ -74,8 +74,8 @@ void loop()
     Serial.print("PM 10.0 (ug/m3): ");
     Serial.println(data.PM_AE_UG_10_0);
 
-    temperature = data.AMB_TMP/10 + set_temp_offset;
-    humandity = data.AMB_HUM/10 + set_rhum_offset;
+    temperature = data.AMB_TMP/10.2F + set_temp_offset;
+    humandity = data.AMB_HUM/10.2F + set_rhum_offset;
     
     Serial.print("Temperature (C): ");
     Serial.println(temperature);
